@@ -1,0 +1,137 @@
+@import url(../styles/common.css);
+
+body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-image: var(--bodyImg);
+	background-size: cover;
+}
+
+.toggleColors {
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	width: 60px;
+	height: 60px;
+	background-color: transparent;
+	border: none;
+}
+.main{
+	width: 400px;
+	height: 500px;
+	overflow: hidden;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px rgba(0, 0, 0, .8);
+}
+#chk{
+	display: none;
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+label{
+	color: var(--LightGrayishBlue);
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .3s;
+}
+input{
+	font-size: 16px;
+	color: var(--LightGrayishBlue);
+	width: 80%;
+	height: 20px;
+	background: var(--VeryDarkGrayishBlue);
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+.submit{
+	position: relative;
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 18px;
+    font-family: "Ubuntu", sans-serif;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+.submit:hover{
+	background: #6d44b8;
+}
+.login{
+	position: relative;
+	height: 460px;
+	background: var(--VeryDarkDesaturatedBlue);
+	border-radius: 60% / 10%;
+	transform: translateY(-180px);
+	transition: .8s ease-in-out;
+}
+.login label{
+	padding-top: 10px;
+	color: var(--authPurple);
+	transform: scale(.6);
+}
+
+.login-loader, .signup-loader {
+	position: absolute;
+	width: 15px;
+	top: 12%;
+	/* transform: translate(-50%, -50%); */
+}
+
+.reset-pswd {
+	position: absolute;
+	top: 75%;
+	width: 80%;
+	margin:0 10%;
+	text-align: end;
+	color: var(--LightGrayishBlue);
+	cursor: pointer;
+}
+.reset-pswd:hover{ 
+	color: var(--DarkGrayishBlue);
+}
+
+
+#chk:checked ~ .login{
+	transform: translateY(-500px);
+}
+#chk:checked ~ .login label{
+	transform: scale(1);	
+}
+#chk:checked ~ .signup label{
+	transform: scale(.6);
+}
+
+@media only screen and (max-width: 37.5em) {
+	body {
+	padding: 0 1.5em;
+	}
+
+	.toggleColors {
+		top: 5px;
+	}
+}

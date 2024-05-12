@@ -1,0 +1,184 @@
+@import url(../styles/common.css);
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bodyBg);
+  background-image: var(--bodyImg);
+  background-repeat: no-repeat;
+  background-size: 100% 35vh;
+  padding-bottom: 120px;
+}
+.todo-app { 
+    transform: translateY(60px);
+}
+.headings--pic {
+    height: 1.4rem;
+}
+.toggleColors {
+    background-color: transparent;
+    border: none;
+}
+.inputBox {
+    background-color: var(--VeryDarkDesaturatedBlue);
+    margin-top: 18px;
+}
+.inputCheck {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: 2px solid hsl(233, 11%, 84%);
+    margin-right: 15px;
+    cursor: pointer;
+}
+.check {
+    position: relative;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    border: 2px solid hsl(233, 11%, 84%);
+    cursor: pointer;
+}
+
+.check:hover {
+    border: 2px solid hsl(192, 100%, 67%);
+}
+
+.checked {
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background-image: url(../images/icon-check.svg), linear-gradient(to right,  hsl(192, 100%, 67%) ,  hsl(280, 87%, 65%));
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border: none;
+}
+.listCheck:checked ~ .check { 
+border: none;
+}
+.listCheck:checked ~ .check > .checkMark {
+    display:block;
+}
+.listCheck:checked ~ p { 
+text-decoration: line-through;
+color: var(--DarkGrayishBlue);
+}
+.inputData {
+    color: var(--LightGrayishBlue);
+    font-size: 18px;
+}
+.inputData:focus {
+    outline: none;
+}
+
+.taskBox {
+    background-color: var(--VeryDarkDesaturatedBlue);
+    padding: 0 !important;
+    box-shadow: var(--boxShadow);
+}
+.taskList {
+    gap: 10px;
+    color: var(--LightGrayishBlue);
+}
+.taskList:not(:first-child) {
+    border-top: 1.6px solid var(--VeryDarkGrayishBlue);
+}
+.taskText {
+    font-size: 18px;
+    flex: 1;
+}
+.taskText--checked { 
+    text-decoration: line-through;
+    color: var(--DarkGrayishBlue);
+}
+.removeTask {
+    margin-left: auto;
+    width: 25px;
+    display: none;
+}
+
+.taskList:hover .removeTask {
+    display: block;
+}
+
+.removeTaskPic {
+    transform: scale(.8);
+}
+
+
+.taskInfo {
+    background-color: var(--VeryDarkDesaturatedBlue);
+    color: var(--DarkGrayishBlue);
+    box-shadow: var(--boxShadow);
+}
+
+.customText:nth-child(1) {
+    color: var(--BrightBlue);
+    cursor: pointer;
+}
+.customText:nth-child(2) {
+    cursor: pointer;
+}
+.customText:nth-child(2):hover { 
+    color: var(--LightGrayishBlue);
+}
+
+.clear {
+    cursor: pointer;
+}
+
+.clear:hover {
+    color: var(--LightGrayishBlue);
+}
+.taskInfoSub {
+    background-color: var(--VeryDarkDesaturatedBlue);
+    color: var(--DarkGrayishBlue);
+    box-shadow:var(--boxShodowDim);
+}
+.drag {
+    color: var(--DarkGrayishBlue);
+    font-size: 18px;
+}
+.bordertp {
+    border-top: 1.6px solid var(--VeryDarkGrayishBlue);
+}
+
+.logout {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 12rem;
+    height: 4rem;
+    border-radius: 4rem;
+    border: none;
+    font-size: 1.5rem;
+    font-weight:500;
+    color: white;
+    background-color: var(--BrightBlue);
+}
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 576px) {
+    body {
+        background-image: url(/images/bg-mobile-dark.jpg);
+    }
+
+    .todo-app {
+        max-width: calc(100% - 3rem);
+        margin: 0 1.5rem;
+    }
+
+    .removeTask {
+        margin-left: auto;
+        width: 25px;
+        display: block;
+    }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <!-- <link rel="stylesheet" href="../styles/common.css"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #666;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .error {
+    position: fixed;
+    left: -380px;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    width: 350px;
+    gap: 15px;
+    padding: 10px;
+    background-color: red;
+    transition: 3s;
+}
+
+.error-show{ 
+    left: 15px;
+}
+
+.error img{  
+    width: 50px !important;
+}
+.error-text{ 
+    font-size: 18px;
+    color: white;
+}
+
+.success {
+    position: fixed;
+    left: -380px;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    width: 350px;
+    gap: 15px;
+    padding: 10px;
+    background-color: rgb(54, 187, 93);
+    transition: 3s;
+}
+
+.success-show{ 
+    left: 15px;
+}
+
+.success img{  
+    width: 50px !important;
+}
+.success-text{ 
+    font-size: 18px;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Verification</h1>
+        <p>Please verify your email address.</p>
+        <p>A verification link has been sent to your email. Click the link in the email to verify your account.</p>
+        <p>If you haven't received the email, you can <button id="resendLink">resend</button> it.</p>
+    </div>
+
+    <div class="success">
+        <img src="../images/check-circle.svg" alt="">
+        <p class="success-text"></p>
+    </div>
+    
+    <div class="error">
+        <img src="../images/exclamation-triangle-fill.svg" alt="">
+        <p class="error-text"></p>
+    </div>
+
+    <script type="module" src="verifyEmail.bundle.js"></script>
+</body>
+</html>
