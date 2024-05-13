@@ -19,6 +19,7 @@ body{
 	height: 60px;
 	background-color: transparent;
 	border: none;
+	cursor: pointer;
 }
 .main{
 	width: 400px;
@@ -99,6 +100,7 @@ input{
 	position: absolute;
 	width: 15px;
 	top: 12%;
+	background-color: var(--authPurple) !important;
 	/* transform: translate(-50%, -50%); */
 }
 

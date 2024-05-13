@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+p {
+    margin: 0;
+}
+
 body {
   background-color: var(--bodyBg);
   background-image: var(--bodyImg);
@@ -18,9 +22,154 @@ body {
 .todo-app { 
     transform: translateY(60px);
 }
+
 .headings--pic {
     height: 1.4rem;
 }
+
+.profile-info-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+    padding: 1rem;
+    color: var(--LightGrayishBlue);
+    background-color: var(--VeryDarkDesaturatedBlue);
+}
+
+.profile-img{
+    /* width: 10rem !important;
+    height: 10rem !important; */
+   display: flex;
+   justify-content: center;
+}
+
+.profile-img img{
+    width: 10rem !important;
+    height: 10rem !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-img-loader {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 10rem;
+    padding: 1rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--VeryDarkGrayishBlue);
+    --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    -webkit-mask-composite: source-out;
+            mask-composite: subtract;
+    animation: spinPI 1s infinite linear;
+}
+
+@keyframes spinPI {to{transform:translate(-50%, 0%) rotate(1turn)}}
+
+
+.profilePic {
+    width: 4rem !important;
+    height: 4rem !important;
+    border-radius: 50%;
+    object-fit: 50%;
+    cursor: pointer;
+    background-color: var(--VeryDarkDesaturatedBlue);
+}
+
+.profile-overlay, .loader-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 0 1.5rem;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 1000;
+}
+
+.home-loader {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10rem !important;
+    padding: 1rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: white;
+    --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    -webkit-mask-composite: source-out;
+            mask-composite: subtract;
+    animation: spinHL 1s infinite linear;
+}
+
+@keyframes spinHL {to{transform: translate(-50%, -50%) rotate(1turn)}}
+
+.profile-info {
+    margin-top: 1.5rem;
+}
+
+.profile-info p{
+    font-size: 1.4rem;
+    padding: 1.5px 0;
+} 
+
+.profile-info span{
+    font-size: 1.2rem;
+} 
+
+.profile-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.custom-file-upload, .remove-avt {
+    font-size: 1rem;
+    border: 1px solid var(--LightGrayishBlue);;
+    padding: 3px 8px;
+    margin-top: 9px;
+    cursor: pointer;
+  }
+
+  .file-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .file-upload-wrapper img{ 
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .file-upload-input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }
+
+#fileImgDisplay {
+    background-color: var(--VeryDarkDesaturatedBlue);
+  }
+
+  
+
 .toggleColors {
     background-color: transparent;
     border: none;
@@ -101,6 +250,7 @@ color: var(--DarkGrayishBlue);
     margin-left: auto;
     width: 25px;
     display: none;
+    cursor: pointer;
 }
 
 .taskList:hover .removeTask {
@@ -180,5 +330,9 @@ color: var(--DarkGrayishBlue);
         margin-left: auto;
         width: 25px;
         display: block;
+    }
+
+    .profile-info-box { 
+        width: calc(100% - 2rem);
     }
 }

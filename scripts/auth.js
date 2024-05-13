@@ -12,26 +12,17 @@ toggleDarkLightMode()
 
 const errMsg = document.querySelector('.error')
 const errText = document.querySelector('.error-text')
+const scsMsg = document.querySelector('.success');
+const scsText = document.querySelector('.success-text');
 const signupBtn = document.querySelector('.signup-submit')
 const loginBtn = document.querySelector('.login-submit')
 const signupLoader = document.querySelector('.signup-loader')
 const loginLoader = document.querySelector('.login-loader')
-const scsMsg = document.querySelector('.success');
-const scsText = document.querySelector('.success-text');
-
 
 onAuthStateChanged(auth, (user) => {
-    // if (user) {
-    //     if (!user.emailVerified) {
-    //         window.location.href = '../dist/verify_email.html';
-    //     } else {
-    //         window.location.href = '../dist/app.html';
-    //     }
-    // } 
-
     if (user && user.emailVerified) {
         window.location.href = '../dist/app.html';
-    }
+    } 
 })
 
 //Signup
@@ -45,6 +36,8 @@ signupForm.addEventListener('submit', function (e) {
     signupLoader.classList.remove('hidden')
     signupBtn.style.pointerEvents = "none"; 
 
+
+
     createUserWithEmailAndPassword(auth, email, password)
     .then((cred) => {
         signupLoader.classList.add('hidden');
@@ -53,15 +46,15 @@ signupForm.addEventListener('submit', function (e) {
         const userRef = doc(db, 'userInfo', cred.user.uid)
         return setDoc(userRef, {
             displayName: name,
+            avatarUrl: '',
             userDataArr: [],
             userDataLeft: 0
         })
     }).then(() => {
         return sendEmailVerification(auth.currentUser)
+    }).then (() => {
+        window.location.href = '../dist/verify_email.html';
     })
-    // .then(() => {
-    //     window.location.href = '../dist/verify_email.html';
-    // })
     .catch ((err) => {
         errMsg.classList.add('error-show');
         errText.textContent = `${err.message}`;
