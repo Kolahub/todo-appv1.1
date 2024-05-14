@@ -21,7 +21,7 @@ const loginLoader = document.querySelector('.login-loader')
 
 onAuthStateChanged(auth, (user) => {
     if (user && user.emailVerified) {
-        window.location.href = '../dist/app.html';
+        window.location.href = 'app.html';
     } 
 })
 
@@ -53,7 +53,7 @@ signupForm.addEventListener('submit', function (e) {
     }).then(() => {
         return sendEmailVerification(auth.currentUser)
     }).then (() => {
-        window.location.href = '../dist/verify_email.html';
+        window.location.href = 'verify_email.html';
     })
     .catch ((err) => {
         errMsg.classList.add('error-show');
@@ -100,5 +100,5 @@ loginForm.addEventListener('submit', function (e) {
 
 const resetPwrd = document.querySelector('.reset-pswd')
 resetPwrd.addEventListener('click', function () {
-    window.location.href = '../dist/resetPwrd.html';
+    window.location.href = 'resetPwrd.html';
 })

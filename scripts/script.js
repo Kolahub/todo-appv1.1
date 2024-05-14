@@ -41,7 +41,7 @@ function readFileAsDataURL(file, callback) {
 function logUserOut () {
   signOut(auth)
   .then(() => {
-    window.location.href = "../dist/index.html";
+    window.location.href = "index.html";
     // console.log("Signed out");
   })
   .catch((err) => {

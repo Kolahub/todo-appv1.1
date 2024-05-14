@@ -23,7 +23,7 @@ resetBtn.addEventListener('click', function () {
         }, 3000);
 
         setTimeout(() => {
-            window.location.href = '../dist/index.html';
+            window.location.href = 'index.html';
         }, 5000);
     })
     .catch((err) => {
