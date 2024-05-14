@@ -29,8 +29,8 @@ export function toggleDarkLightMode () {
      * @param {boolean} options.isDark - A flag indicating whether the current theme is dark or not.
      */
     function updateButton({ buttonEl, isDark }) {
-      const lightThemeLogo = createImage("../images/icon-sun.svg");
-      const darkThemeLogo = createImage("../images/icon-moon.svg");
+      const lightThemeLogo = createImage("images/icon-sun.svg");
+      const darkThemeLogo = createImage("images/icon-moon.svg");
       const newCta = isDark ? lightThemeLogo : darkThemeLogo;
     
       setAriaLabel(buttonEl, newCta);
