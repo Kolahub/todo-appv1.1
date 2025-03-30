@@ -1,175 +1,260 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Font Awesome Icons  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- Google Fonts  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="./images/todooo.png"
-  />
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/todooo.png"
+    />
 
     <title>TaskTrack || Forgot Password</title>
 
     <style>
-        * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
 
-body {
-    background-color: #ff99f5;
-    background-image:
-        radial-gradient(at 61% 4%, hsla(303, 91%, 61%, 1) 0px, transparent 50%),
-        radial-gradient(at 75% 66%, hsla(196, 91%, 79%, 1) 0px, transparent 50%),
-        radial-gradient(at 98% 88%, hsla(76, 87%, 78%, 1) 0px, transparent 50%),
-        radial-gradient(at 23% 16%, hsla(238, 96%, 77%, 1) 0px, transparent 50%),
-        radial-gradient(at 95% 65%, hsla(13, 91%, 75%, 1) 0px, transparent 50%),
-        radial-gradient(at 10% 79%, hsla(228, 96%, 69%, 1) 0px, transparent 50%),
-        radial-gradient(at 85% 58%, hsla(328, 81%, 68%, 1) 0px, transparent 50%);
-    background-repeat: no-repeat;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 0 1.2rem;
-}
+      body {
+        background-color: #ff99f5;
+        background-image: radial-gradient(
+            at 61% 4%,
+            hsla(303, 91%, 61%, 1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 75% 66%,
+            hsla(196, 91%, 79%, 1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 98% 88%,
+            hsla(76, 87%, 78%, 1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 23% 16%,
+            hsla(238, 96%, 77%, 1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 95% 65%,
+            hsla(13, 91%, 75%, 1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 10% 79%,
+            hsla(228, 96%, 69%, 1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 85% 58%,
+            hsla(328, 81%, 68%, 1) 0px,
+            transparent 50%
+          );
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        padding: 0 1.2rem;
+      }
 
-.card {
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(0, 0, 0, 0.75);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 400px;
-    padding: 30px 40px;
-}
+      .card {
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(0, 0, 0, 0.65);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 420px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-.lock-icon {
-    font-size: 3rem;
-}
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
 
-h2 {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    text-transform: uppercase;
-}
+      .lock-icon {
+        font-size: 3.5rem;
+        background: linear-gradient(to right, #80d0c7, #5558da);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 15px;
+      }
 
-p {
-    font-size: 12px;
-}
+      h2 {
+        font-size: 1.8rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
 
-.passInput {
-    margin-top: 15px;
-    width: 80%;
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid deepskyblue;
-    font-size: 15px;
-    color: white;
-    outline: none;
-}
+      p {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 20px;
+      }
 
-button {
-    margin-top: 15px;
-    width: 80%;
-    background-color: deepskyblue;
-    color: white;
-    padding: 10px;
-    text-transform: uppercase;
-}
+      .passInput {
+        margin-top: 15px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        color: white;
+        outline: none;
+        padding: 15px;
+        margin-bottom: 15px;
+        transition: background 0.3s ease, transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
 
-.success {
-    position: fixed;
-    left: -380px;
-    top: 15px;
-    display: flex;
-    align-items: center;
-    width: 350px;
-    gap: 15px;
-    padding: 10px;
-    background-color: rgb(125, 225, 155);
-    transition: 1s;
-}
+      .passInput:focus {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
 
-.success-show{ 
-    left: 15px;
-}
+      button {
+        margin-top: 15px;
+        width: 100%;
+        background: linear-gradient(to right, #5558da, #80d0c7);
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 30px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(85, 88, 218, 0.4);
+      }
 
-.success img{  
-    width: 50px !important;
-}
-.success-text{ 
-    font-size: 18px;
-    color: white;
-}
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(85, 88, 218, 0.6);
+      }
 
-.error {
-    position: fixed;
-    left: -380px;
-    top: 15px;
-    display: flex;
-    align-items: center;
-    width: 350px;
-    gap: 15px;
-    padding: 10px;
-    background-color: red;
-    transition: 1s;
-}
+      .back-to-login {
+        margin-top: 20px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
 
-.error-show{ 
-    left: 15px;
-}
+      .back-to-login:hover {
+        color: white;
+        text-decoration: underline;
+      }
 
-.error img{  
-    width: 50px !important;
-}
-.error-text{ 
-    font-size: 18px;
-    color: white;
-}
+      .success,
+      .error {
+        position: fixed;
+        left: -380px;
+        top: 25px;
+        display: flex;
+        align-items: center;
+        width: 350px;
+        gap: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        transition: left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        z-index: 1000;
+      }
+
+      .success {
+        background-color: rgba(125, 225, 155, 0.9);
+      }
+
+      .error {
+        background-color: rgba(255, 82, 82, 0.9);
+      }
+
+      .success-show,
+      .error-show {
+        left: 25px;
+      }
+
+      .success img,
+      .error img {
+        width: 30px !important;
+        height: 30px !important;
+      }
+
+      .success-text,
+      .error-text {
+        font-size: 16px;
+        color: white;
+        margin: 0;
+      }
+
+      @media (max-width: 500px) {
+        .card {
+          width: 100%;
+          padding: 30px;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="card">
-        <p class="lock-icon"><i class="fas fa-lock"></i></p>
-        <h2>Forgot Password?</h2>
-        <p>You can reset your Password here</p>
-        <input type="text" class="passInput" placeholder="Email address">
-        <button class="resetBtn">Send Reset Password Link</button>
+      <p class="lock-icon"><i class="fas fa-lock"></i></p>
+      <h2>Forgot Password?</h2>
+      <p>Enter your email and we'll send you a link to reset your password</p>
+      <input type="text" class="passInput" placeholder="Email address" />
+      <button class="resetBtn">Send Reset Link</button>
+      <a href="index.html" class="back-to-login">Back to Login</a>
     </div>
 
     <div class="success">
-        <img src="../images/check-circle.svg" alt="">
-        <p class="success-text"></p>
+      <img src="../images/check-circle.svg" alt="" />
+      <p class="success-text"></p>
     </div>
 
     <div class="error">
-        <img src="../images/exclamation-triangle-fill.svg" alt="">
-        <p class="error-text"></p>
-      </div>
+      <img src="../images/exclamation-triangle-fill.svg" alt="" />
+      <p class="error-text"></p>
+    </div>
 
     <script type="module" src="./dist/resetPwrd.bundle.js"></script>
-</body>
-
+  </body>
 </html>

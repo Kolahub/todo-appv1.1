@@ -171,7 +171,7 @@ function chooseNewAvatar() {
     readFileAsDataURL(file, function (dataURL) {
       selectedProfileImg = dataURL;
       updateAvatar(selectedProfileImg);
-      console.log("acfghjk");
+      // console.log("acfghjk");
     });
   });
 }

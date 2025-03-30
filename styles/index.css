@@ -1,139 +1,580 @@
 @import url(../styles/common.css);
 
-body{
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	background-image: var(--bodyImg);
-	background-size: cover;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  position: relative;
+}
+
+body[data-theme="light"] {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+    center center;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.app-title {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
+body[data-theme="light"] .app-title {
+  color: #333;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-title h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #ffffff, #c9d6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body[data-theme="light"] .app-title h1 {
+  background: linear-gradient(to right, #333, #5558da);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.app-title p {
+  font-size: 1rem;
+  margin-top: 5px;
+  opacity: 0.9;
 }
 
 .toggleColors {
-	position: fixed;
-	right: 10px;
-	top: 10px;
-	width: 60px;
-	height: 60px;
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-}
-.main{
-	width: 400px;
-	height: 500px;
-	overflow: hidden;
-	border-radius: 10px;
-	box-shadow: 5px 20px 50px rgba(0, 0, 0, .8);
-}
-#chk{
-	display: none;
-}
-.signup{
-	position: relative;
-	width:100%;
-	height: 100%;
-}
-label{
-	color: var(--LightGrayishBlue);
-	font-size: 2.3em;
-	justify-content: center;
-	display: flex;
-	margin: 60px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: .3s;
-}
-input{
-	font-size: 16px;
-	color: var(--LightGrayishBlue);
-	width: 80%;
-	height: 20px;
-	background: var(--VeryDarkGrayishBlue);
-	justify-content: center;
-	display: flex;
-	margin: 20px auto;
-	padding: 10px;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-}
-.submit{
-	position: relative;
-	width: 60%;
-	height: 40px;
-	margin: 10px auto;
-	justify-content: center;
-	display: block;
-	color: #fff;
-	background: #573b8a;
-	font-size: 18px;
-    font-family: "Ubuntu", sans-serif;
-	font-weight: bold;
-	margin-top: 20px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	transition: .2s ease-in;
-	cursor: pointer;
-}
-.submit:hover{
-	background: #6d44b8;
-}
-.login{
-	position: relative;
-	height: 460px;
-	background: var(--VeryDarkDesaturatedBlue);
-	border-radius: 60% / 10%;
-	transform: translateY(-180px);
-	transition: .8s ease-in-out;
-}
-.login label{
-	padding-top: 10px;
-	color: var(--authPurple);
-	transform: scale(.6);
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 45px;
+  height: 45px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.login-loader, .signup-loader {
-	position: absolute;
-	width: 15px;
-	top: 12%;
-	background-color: white !important;
-	/* transform: translate(-50%, -50%); */
+body[data-theme="light"] .toggleColors {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggleColors:hover {
+  transform: rotate(30deg);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body[data-theme="light"] .toggleColors:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.main {
+  width: 400px;
+  min-height: 500px;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  background: rgba(35, 39, 65, 0.7);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+body[data-theme="light"] .main {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.main:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+body[data-theme="light"] .main:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+#chk {
+  display: none;
+}
+
+.signup,
+.login {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 55px);
+  padding: 20px;
+  box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  top: 55px;
+}
+
+.signup {
+  z-index: 2;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.login {
+  border-radius: 0 0 20px 20px;
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 1;
+}
+
+body[data-theme="light"] .signup {
+  background: transparent;
+}
+
+body[data-theme="light"] .login {
+  background: transparent;
+}
+
+#chk:checked ~ .login {
+  transform: translateX(0);
+  opacity: 1;
+  z-index: 3;
+}
+
+#chk:checked ~ .signup {
+  transform: translateX(-100%);
+  opacity: 0;
+  z-index: 1;
+}
+
+label {
+  color: white;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+label::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(to right, #5e72e4, #825ee4);
+  transition: width 0.3s ease;
+}
+
+label:hover::after {
+  width: 50px;
+}
+
+#chk:checked ~ .login label::after {
+  width: 50px;
+}
+
+#chk:checked ~ .signup label::after {
+  width: 0;
+}
+
+body[data-theme="light"] label {
+  color: #333;
+}
+
+.signup-form,
+.login-form {
+  padding-top: 20px;
+}
+
+.input-group {
+  position: relative;
+  width: 85%;
+  margin: 20px auto;
+}
+
+.login-form .input-group {
+  margin: 25px auto;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+  color: white;
+}
+
+body[data-theme="light"] .password-toggle {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+body[data-theme="light"] .password-toggle:hover {
+  color: #333;
+}
+
+body[data-theme="light"] .input-icon {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+input {
+  width: 100%;
+  padding: 15px 15px 15px 40px;
+  font-size: 14px;
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme="light"] input {
+  background: rgba(255, 255, 255, 0.5);
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(94, 114, 228, 0.4);
+  border: 1px solid rgba(94, 114, 228, 0.5);
+}
+
+body[data-theme="light"] input:focus {
+  box-shadow: 0 0 15px rgba(94, 114, 228, 0.2);
+  border: 1px solid rgba(94, 114, 228, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body[data-theme="light"] input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.submit {
+  width: 70%;
+  height: 50px;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: linear-gradient(to right, #5e72e4, #825ee4);
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submit:hover {
+  background: linear-gradient(to right, #825ee4, #5e72e4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(94, 114, 228, 0.6);
+}
+
+.submit:active {
+  transform: scale(0.9);
+}
+
+.submit span {
+  transition: opacity 0.3s ease;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.signup-submit.loading span,
+.login-submit.loading span {
+  opacity: 0;
+}
+
+.signup-submit.loading .signup-loader,
+.login-submit.loading .login-loader {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .reset-pswd {
-	position: absolute;
-	top: 75%;
-	width: 80%;
-	margin:0 10%;
-	text-align: end;
-	color: var(--LightGrayishBlue);
-	cursor: pointer;
-}
-.reset-pswd:hover{ 
-	color: var(--DarkGrayishBlue);
-}
-
-
-#chk:checked ~ .login{
-	transform: translateY(-500px);
-}
-#chk:checked ~ .login label{
-	transform: scale(1);	
-}
-#chk:checked ~ .signup label{
-	transform: scale(.6);
+  position: relative;
+  width: 80%;
+  margin: 15px auto;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
-@media only screen and (max-width: 37.5em) {
-	body {
-	padding: 0 1.5em;
-	}
+body[data-theme="light"] .reset-pswd {
+  color: rgba(0, 0, 0, 0.7);
+}
 
-	.toggleColors {
-		top: 5px;
-	}
+.reset-pswd:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+body[data-theme="light"] .reset-pswd:hover {
+  color: #5e72e4;
+  transform: translateY(-2px);
+}
+
+.toggle-tab-hint {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+body[data-theme="light"] .toggle-tab-hint {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.toggle-tab-hint i {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    width: 90%;
+    margin: 100px auto 20px;
+  }
+
+  .input-group {
+    width: 90%;
+  }
+
+  .submit {
+    width: 80%;
+  }
+
+  .app-title {
+    top: 15px;
+  }
+
+  .app-title h1 {
+    font-size: 2rem;
+  }
+
+  .app-title p {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .toggleColors {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+.tab-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  background: linear-gradient(
+    to bottom,
+    rgba(94, 114, 228, 0.4),
+    rgba(130, 94, 228, 0.4)
+  );
+  border-radius: 20px 20px 0 0;
+  z-index: 4;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body[data-theme="light"] .tab-container {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(240, 240, 250, 0.9)
+  );
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tab {
+  width: 50%;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  user-select: none;
+}
+
+body[data-theme="light"] .tab {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.tab.active {
+  color: white;
+  background: rgba(94, 114, 228, 0.5);
+  font-weight: 700;
+}
+
+body[data-theme="light"] .tab.active {
+  color: #5e72e4;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(to right, #5e72e4, #825ee4);
+  transition: width 0.3s ease;
+}
+
+.tab:hover::after {
+  width: 40%;
+}
+
+.tab.active::after {
+  width: 60%;
+}
+
+/* Add subtle separator between tabs */
+.tab:first-child::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: 0;
+  height: 60%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body[data-theme="light"] .tab:first-child::before {
+  background-color: rgba(0, 0, 0, 0.1);
 }
