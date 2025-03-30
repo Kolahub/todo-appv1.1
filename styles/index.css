@@ -455,7 +455,7 @@ body[data-theme="light"] .toggle-tab-hint {
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .main {
     width: 90%;
     margin: 100px auto 20px;
@@ -486,7 +486,7 @@ body[data-theme="light"] .toggle-tab-hint {
     top: 15px;
     right: 15px;
   }
-}
+} */
 
 .tab-container {
   position: absolute;
